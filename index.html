@@ -39,17 +39,6 @@
       </div>
     </div>
 
-    <!-- Music button (no autoplay) -->
-    <div class="topbar">
-      <button id="musicBtn" class="music-btn" type="button" aria-label="Reproducir musica">
-        <span id="musicIcon">►</span>
-        <span class="music-text" id="musicText">Play</span>
-      </button>
-      <audio id="bgMusic" preload="none">
-        <source src="song.mp3" type="audio/mpeg" />
-      </audio>
-    </div>
-
     <header class="header">
       <div class="badge">Para ti</div>
       <h1>Quieres ser mi Valentine?</h1>
@@ -78,7 +67,7 @@
           Solo queria decirte que me haces muy feliz y que contigo todo se siente bonito.
           Asi que... dime que si y ya quedas apartada conmigo jeje.
         </p>
-        <div class="letter-sign">- Hiram</div>
+        <div class="letter-sign">- Tu valentines</div>
       </div>
     </section>
 
@@ -93,7 +82,6 @@
         <button class="nav prev" id="prevBtn" type="button" aria-label="Anterior">‹</button>
 
         <div class="slides" id="slides">
-          <!-- Cambia nombres si quieres -->
           <img class="slide active" src="photo1.jpeg" alt="Foto 1" />
           <img class="slide" src="photo2.jpeg" alt="Foto 2" />
           <img class="slide" src="photo3.jpeg" alt="Foto 3" />
@@ -104,15 +92,17 @@
       <div class="album-hint">Tip: puedes usar las flechitas o tocar la imagen.</div>
     </section>
 
-    <!-- TU FOTO principal (la dejo igual pero ahora la apunto a photo1 por defecto) -->
+    <!-- Foto principal -->
     <section class="photo-wrap" aria-label="Nuestra foto">
-      <img class="photo" src="photo1.jpeg" alt="Nuestra foto" />
+      <img class="photo" src="photo2.jpeg" alt="Nuestra foto" />
       <div class="photo-glow" aria-hidden="true"></div>
     </section>
 
     <section class="actions" aria-label="Botones de decision">
       <div class="btn-area" id="btnArea">
         <button id="yesBtn" class="btn btn-yes" type="button">Si</button>
+
+        <!-- iOS: ontouchstart ayuda a que no lo alcancen -->
         <button id="noBtn" class="btn btn-no" type="button" ontouchstart="">No</button>
       </div>
 

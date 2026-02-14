@@ -21,12 +21,6 @@ const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const dotsWrap = document.getElementById("dots");
 
-// Music
-const musicBtn = document.getElementById("musicBtn");
-const bgMusic = document.getElementById("bgMusic");
-const musicIcon = document.getElementById("musicIcon");
-const musicText = document.getElementById("musicText");
-
 let dodgeCount = 0;
 let idx = 0;
 
@@ -59,6 +53,7 @@ noBtn.addEventListener("mouseenter", () => {
   else setHint("Imposible decir que no.");
 });
 
+// Mobile/iPad (extra seguro)
 noBtn.addEventListener("pointerdown", (e) => {
   e.preventDefault();
   dodgeCount++;
@@ -83,7 +78,7 @@ function confettiBurst(count = 110){
     const piece = document.createElement("div");
     piece.className = "confetti";
 
-    const hue = Math.floor(Math.random() * 40) + 320; // pink range
+    const hue = Math.floor(Math.random() * 40) + 320;
     piece.style.background = `hsl(${hue} 90% 70%)`;
 
     piece.style.left = `${Math.random() * 100}vw`;
@@ -142,7 +137,6 @@ function openLetter(){
   openLetterBtn.classList.add("open");
   openLetterBtn.setAttribute("aria-expanded", "true");
   letter.hidden = false;
-  // cute micro-confetti
   confettiBurst(50);
 }
 function closeLetter(){
@@ -181,7 +175,7 @@ nextBtn.addEventListener("click", () => showSlide(idx + 1));
 // Tap image to go next
 slidesWrap.addEventListener("click", () => showSlide(idx + 1));
 
-// Keyboard arrows (optional)
+// Keyboard arrows
 document.addEventListener("keydown", (e) => {
   if(e.key === "ArrowLeft") showSlide(idx - 1);
   if(e.key === "ArrowRight") showSlide(idx + 1);
@@ -189,40 +183,6 @@ document.addEventListener("keydown", (e) => {
 
 buildDots();
 showSlide(0);
-
-// ---------------------- Music (no autoplay) ----------------------
-let isPlaying = false;
-
-async function toggleMusic(){
-  if(!bgMusic) return;
-
-  try{
-    if(!isPlaying){
-      await bgMusic.play();
-      isPlaying = true;
-      musicIcon.textContent = "❚❚";
-      musicText.textContent = "Pause";
-      confettiBurst(30);
-    }else{
-      bgMusic.pause();
-      isPlaying = false;
-      musicIcon.textContent = "►";
-      musicText.textContent = "Play";
-    }
-  }catch(err){
-    // If browser blocks it for any reason, show hint
-    setHint("Dale click otra vez para activar la musica.");
-  }
-}
-
-musicBtn.addEventListener("click", toggleMusic);
-
-// When music ends
-bgMusic.addEventListener("ended", () => {
-  isPlaying = false;
-  musicIcon.textContent = "►";
-  musicText.textContent = "Play";
-});
 
 // Initial hint
 setHint("Picale a Si.");
