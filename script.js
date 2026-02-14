@@ -68,6 +68,15 @@ noBtn.addEventListener("pointerdown", (e) => {
   else setHint("Ya sabes cual es la respuesta.");
 });
 
+noBtn.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  dodgeCount++;
+  moveNoButton();
+
+  if (dodgeCount < 3) setHint("Casi... pero no.");
+  else setHint("Ya sabes cual es la respuesta.");
+}, { passive: false });
+
 // ---------------------- Confetti ----------------------
 function confettiBurst(count = 110){
   for(let i=0;i<count;i++){
