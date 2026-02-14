@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Quieres ser mi Valentine?</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=9" />
 </head>
 
 <body>
@@ -13,7 +13,6 @@
 
   <main class="card" role="main">
 
-    <!-- Stickers -->
     <div class="stickers" aria-hidden="true">
       <div class="sticker s1">
         <svg viewBox="0 0 120 120" fill="none">
@@ -39,17 +38,6 @@
       </div>
     </div>
 
-    <!-- Music button (no autoplay) -->
-    <div class="topbar">
-      <button id="musicBtn" class="music-btn" type="button" aria-label="Reproducir musica">
-        <span id="musicIcon">►</span>
-        <span class="music-text" id="musicText">Play</span>
-      </button>
-      <audio id="bgMusic" preload="none">
-        <source src="song.mp3" type="audio/mpeg" />
-      </audio>
-    </div>
-
     <header class="header">
       <div class="badge">Para ti</div>
       <h1>Quieres ser mi Valentine?</h1>
@@ -59,7 +47,6 @@
       </p>
     </header>
 
-    <!-- Envelope letter -->
     <section class="envelope-section" aria-label="Cartita">
       <button id="openLetterBtn" class="envelope" type="button" aria-expanded="false">
         <div class="env-back"></div>
@@ -78,42 +65,20 @@
           Solo queria decirte que me haces muy feliz y que contigo todo se siente bonito.
           Asi que... dime que si y ya quedas apartada conmigo jeje.
         </p>
-        <div class="letter-sign">- Hiram</div>
+        <div class="letter-sign">- Tu valentines</div>
       </div>
     </section>
 
-    <!-- Slider / mini album -->
-    <section class="album" aria-label="Mini album">
-      <div class="album-top">
-        <div class="album-title">Mini album</div>
-        <div class="album-dots" id="dots" aria-hidden="true"></div>
-      </div>
-
-      <div class="slider" id="slider">
-        <button class="nav prev" id="prevBtn" type="button" aria-label="Anterior">‹</button>
-
-        <div class="slides" id="slides">
-          <!-- Cambia nombres si quieres -->
-          <img class="slide active" src="photo1.jpeg" alt="Foto 1" />
-          <img class="slide" src="photo2.jpeg" alt="Foto 2" />
-          <img class="slide" src="photo3.jpeg" alt="Foto 3" />
-        </div>
-
-        <button class="nav next" id="nextBtn" type="button" aria-label="Siguiente">›</button>
-      </div>
-      <div class="album-hint">Tip: puedes usar las flechitas o tocar la imagen.</div>
-    </section>
-
-    <!-- TU FOTO principal (la dejo igual pero ahora la apunto a photo1 por defecto) -->
+    <!-- Solo 1 foto (estable) -->
     <section class="photo-wrap" aria-label="Nuestra foto">
-      <img class="photo" src="photo1.jpeg" alt="Nuestra foto" />
+      <img class="photo" src="photo2.jpeg" alt="Nuestra foto" />
       <div class="photo-glow" aria-hidden="true"></div>
     </section>
 
     <section class="actions" aria-label="Botones de decision">
       <div class="btn-area" id="btnArea">
         <button id="yesBtn" class="btn btn-yes" type="button">Si</button>
-        <button id="noBtn" class="btn btn-no" type="button">No</button>
+        <button id="noBtn" class="btn btn-no" type="button" ontouchstart="">No</button>
       </div>
 
       <div class="hint" id="hint" aria-live="polite"></div>
@@ -121,9 +86,7 @@
 
     <section class="result" id="result" hidden>
       <h2>Sabia que ibas a decir que si</h2>
-      <p class="result-text">
-        Te amo. Ya estas oficialmente invitada.
-      </p>
+      <p class="result-text">Te amo. Ya estas oficialmente invitada.</p>
       <button id="resetBtn" class="btn btn-ghost" type="button">Repetir</button>
     </section>
 
@@ -132,6 +95,6 @@
     </footer>
   </main>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=9"></script>
 </body>
 </html>
