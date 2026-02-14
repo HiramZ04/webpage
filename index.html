@@ -9,34 +9,47 @@
 
 <body>
   <div class="bg-hearts" aria-hidden="true"></div>
-
-
   <div class="float-layer" id="floatLayer" aria-hidden="true"></div>
+
   <main class="card" role="main">
+
+    <!-- Stickers -->
     <div class="stickers" aria-hidden="true">
-    <div class="sticker s1">
+      <div class="sticker s1">
         <svg viewBox="0 0 120 120" fill="none">
-            <path d="M60 18c7 14 22 26 38 28-16 2-31 14-38 28-7-14-22-26-38-28 16-2 31-14 38-28Z" fill="rgba(255,77,166,0.35)"/>
-            <path d="M60 28c5 10 16 18 28 20-12 2-23 10-28 20-5-10-16-18-28-20 12-2 23-10 28-20Z" fill="rgba(255,119,199,0.55)"/>
+          <path d="M60 18c7 14 22 26 38 28-16 2-31 14-38 28-7-14-22-26-38-28 16-2 31-14 38-28Z" fill="rgba(255,77,166,0.35)"/>
+          <path d="M60 28c5 10 16 18 28 20-12 2-23 10-28 20-5-10-16-18-28-20 12-2 23-10 28-20Z" fill="rgba(255,119,199,0.55)"/>
         </svg>
+      </div>
+
+      <div class="sticker s2">
+        <svg viewBox="0 0 120 120" fill="none">
+          <path d="M28 60c12-18 28-28 32-30 4 2 20 12 32 30-12 18-28 28-32 30-4-2-20-12-32-30Z" fill="rgba(255,43,106,0.22)"/>
+          <path d="M60 34c10 0 18 8 18 18 0 14-18 28-18 28S42 66 42 52c0-10 8-18 18-18Z" fill="rgba(255,77,166,0.50)"/>
+        </svg>
+      </div>
+
+      <div class="sticker s3">
+        <svg viewBox="0 0 120 120" fill="none">
+          <path d="M22 44c12-6 26 2 38 14 12-12 26-20 38-14 16 8 10 30-6 44-10 8-22 12-32 14-10-2-22-6-32-14-16-14-22-36-6-44Z"
+            fill="rgba(255,119,199,0.35)"/>
+          <path d="M34 48c8-4 18 2 26 12 8-10 18-16 26-12 10 6 6 20-4 30-8 8-18 11-22 12-4-1-14-4-22-12-10-10-14-24-4-30Z"
+            fill="rgba(255,77,166,0.45)"/>
+        </svg>
+      </div>
     </div>
 
-    <div class="sticker s2">
-        <svg viewBox="0 0 120 120" fill="none">
-            <path d="M28 60c12-18 28-28 32-30 4 2 20 12 32 30-12 18-28 28-32 30-4-2-20-12-32-30Z" fill="rgba(255,43,106,0.22)"/>
-            <path d="M60 34c10 0 18 8 18 18 0 14-18 28-18 28S42 66 42 52c0-10 8-18 18-18Z" fill="rgba(255,77,166,0.50)"/>
-        </svg>
+    <!-- Music button (no autoplay) -->
+    <div class="topbar">
+      <button id="musicBtn" class="music-btn" type="button" aria-label="Reproducir musica">
+        <span id="musicIcon">►</span>
+        <span class="music-text" id="musicText">Play</span>
+      </button>
+      <audio id="bgMusic" preload="none">
+        <source src="song.mp3" type="audio/mpeg" />
+      </audio>
     </div>
 
-    <div class="sticker s3">
-        <svg viewBox="0 0 120 120" fill="none">
-            <path d="M22 44c12-6 26 2 38 14 12-12 26-20 38-14 16 8 10 30-6 44-10 8-22 12-32 14-10-2-22-6-32-14-16-14-22-36-6-44Z"
-                fill="rgba(255,119,199,0.35)"/>
-            <path d="M34 48c8-4 18 2 26 12 8-10 18-16 26-12 10 6 6 20-4 30-8 8-18 11-22 12-4-1-14-4-22-12-10-10-14-24-4-30Z"
-                fill="rgba(255,77,166,0.45)"/>
-        </svg>
-    </div>
-    </div>
     <header class="header">
       <div class="badge">Para ti</div>
       <h1>Quieres ser mi Valentine?</h1>
@@ -46,22 +59,61 @@
       </p>
     </header>
 
+    <!-- Envelope letter -->
+    <section class="envelope-section" aria-label="Cartita">
+      <button id="openLetterBtn" class="envelope" type="button" aria-expanded="false">
+        <div class="env-back"></div>
+        <div class="env-front"></div>
+        <div class="env-flap"></div>
+        <div class="env-heart" aria-hidden="true">💌</div>
+        <div class="env-label">Abre la cartita</div>
+      </button>
+
+      <div id="letter" class="letter" hidden>
+        <div class="letter-head">
+          <div class="letter-title">Para mi mochi</div>
+          <button id="closeLetterBtn" class="letter-close" type="button" aria-label="Cerrar carta">✕</button>
+        </div>
+        <p class="letter-text">
+          Solo queria decirte que me haces muy feliz y que contigo todo se siente bonito.
+          Asi que... dime que si y ya quedas apartada conmigo jeje.
+        </p>
+        <div class="letter-sign">- Tu valentines</div>
+      </div>
+    </section>
+
+    <!-- Slider / mini album -->
+    <section class="album" aria-label="Mini album">
+      <div class="album-top">
+        <div class="album-title">Mini album</div>
+        <div class="album-dots" id="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="slider" id="slider">
+        <button class="nav prev" id="prevBtn" type="button" aria-label="Anterior">‹</button>
+
+        <div class="slides" id="slides">
+          <!-- Cambia nombres si quieres -->
+          <img class="slide active" src="photo1.jpg" alt="Foto 1" />
+          <img class="slide" src="photo2.jpg" alt="Foto 2" />
+          <img class="slide" src="photo3.jpg" alt="Foto 3" />
+        </div>
+
+        <button class="nav next" id="nextBtn" type="button" aria-label="Siguiente">›</button>
+      </div>
+      <div class="album-hint">Tip: puedes usar las flechitas o tocar la imagen.</div>
+    </section>
+
+    <!-- TU FOTO principal (la dejo igual pero ahora la apunto a photo1 por defecto) -->
     <section class="photo-wrap" aria-label="Nuestra foto">
-      <!-- Cambia photo.jpg por el nombre real de tu imagen -->
-      <img class="photo" src="photo.jpg" alt="Nuestra foto" />
+      <img class="photo" src="photo1.jpg" alt="Nuestra foto" />
       <div class="photo-glow" aria-hidden="true"></div>
     </section>
 
     <section class="actions" aria-label="Botones de decision">
       <div class="btn-area" id="btnArea">
-        <button id="yesBtn" class="btn btn-yes" type="button">
-          Si
-        </button>
-
-        <!-- El "No" se mueve dentro de esta area -->
-        <button id="noBtn" class="btn btn-no" type="button">
-          No
-        </button>
+        <button id="yesBtn" class="btn btn-yes" type="button">Si</button>
+        <button id="noBtn" class="btn btn-no" type="button">No</button>
       </div>
 
       <div class="hint" id="hint" aria-live="polite"></div>
