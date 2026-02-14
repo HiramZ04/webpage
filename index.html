@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quieres ser mi Valentine?</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="bg-hearts" aria-hidden="true"></div>
+
+  <main class="card" role="main">
+    <header class="header">
+      <div class="badge">Para ti</div>
+      <h1>Hey, quieres ser mi Valentine?</h1>
+      <p class="sub">
+        Prometo que va a ser un dia bonito. (Y si intentas decir que no... buen intento)
+      </p>
+    </header>
+
+    <section class="photo-wrap" aria-label="Nuestra foto">
+      <!-- Cambia photo.jpg por el nombre real de tu imagen -->
+      <img class="photo" src="photo.jpg" alt="Nuestra foto" />
+      <div class="photo-glow" aria-hidden="true"></div>
+    </section>
+
+    <section class="actions" aria-label="Botones de decision">
+      <div class="btn-area" id="btnArea">
+        <button id="yesBtn" class="btn btn-yes" type="button">
+          Si
+        </button>
+
+        <!-- El "No" se mueve dentro de esta area -->
+        <button id="noBtn" class="btn btn-no" type="button">
+          No
+        </button>
+      </div>
+
+      <div class="hint" id="hint" aria-live="polite"></div>
+    </section>
+
+    <section class="result" id="result" hidden>
+      <h2>Sabia que ibas a decir que si</h2>
+      <p class="result-text">
+        Te amo. Ya estas oficialmente invitada.
+      </p>
+      <button id="resetBtn" class="btn btn-ghost" type="button">Repetir</button>
+    </section>
+
+    <footer class="footer">
+      <small>Hecho con amor (y un boton que se escapa).</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
